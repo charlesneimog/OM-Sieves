@@ -1,0 +1,31 @@
+(:om-lib
+
+(:version 0.5)
+(:doc "
+
+See http://charlesneimog.com")
+
+(:des "Charles K. Neimog | charlesneimog.com | Master degree in Music Composition at Universidade Federal de Juiz de Fora")
+
+(:author "Charles K. Neimog | charlesneimog.com | Master degree in Music Composition at Universidade Federal de Juiz de Fora")
+
+ ;;; SOURCE FILES TO LOAD
+
+(:source-files "sources/cribles" "sources/OM-Symmetry")
+
+(:symbols 
+      
+            (:classes crible) (:functions  c-union c-intersection c-complement revel-crible c-decompose c-list c-union-l c-intersection-l c-symmetry-perfil  c-limite))
+            
+                   
+          )
+
+
+(print 
+"
+                                              OM-Sieves
+
+      by Charles K. Neimog | charlesneimog.com  
+      Universidade Federal de Juiz de Fora (2019-2020)
+"
+)       
