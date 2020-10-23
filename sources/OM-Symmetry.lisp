@@ -168,7 +168,6 @@
 :icon 423
 :doc "It converts list of sieves (MODULOS MIN MAX) for midicents notes."
 
-
 (if (equal modo 1) 
         (c-union-l-fun (mapcar (lambda (x) (x-append x limite)) sieve-l))
         (c-intersection-l-fun (mapcar (lambda (x) (x-append x limite)) sieve-l))))
