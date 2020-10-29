@@ -4,81 +4,81 @@
 
 ; ==============================================
 
-(defmethod! c-list ((crible list))
+(defmethod! s-list ((sieve list))
 :initvals ' (((19 16 64) (11 16 64)))
-:indoc ' ("List of all the cribles/sieves in questions") 
+:indoc ' ("List of all the sieves/sieves in questions") 
 :icon 423
 :doc "It converts list of sieves (MODULOS MIN MAX) for midicents notes."
 
-(crible-l-fun crible))
+(sieve-l-fun sieve))
 
-(defun crible-l-fun (crible)  
-  (loop for cknloop in crible :collect (make-value 'crible (list (list :cr-exp cknloop)))))
+(defun sieve-l-fun (sieve)  
+  (loop for cknloop in sieve :collect (make-value 'sieve (list (list :cr-exp cknloop)))))
 
 ; ==============================================
 
-(defmethod! c-union-l ((crible list))
+(defmethod! s-union-l ((sieve list))
 :initvals ' (((19 16 64) (11 16 64)))
-:indoc ' ("List of all the cribles/sieves in questions") 
+:indoc ' ("List of all the sieves/sieves in questions") 
 :icon 423
 :doc "It converts list of sieves (MODULOS MIN MAX) for midicents notes."
 
-(c-union-l-fun crible))
+(s-union-l-fun sieve))
 
 
-(defun c-union-l-fun (crible) (let* (
+(defun s-union-l-fun (sieve) (let* (
 
-(mk-crible (crible-l-fun crible))
+(mk-sieve (sieve-l-fun sieve))
   
-(crible-1 (first mk-crible))
+(sieve-1 (first mk-sieve))
 
-(crible-f (loop :for cknloop :in mk-crible :collect
-        (let* ((accum-fun #'(lambda (crible-1 cknloop) (c-union crible-1 cknloop))))
-                  (setf crible-1 (funcall accum-fun crible-1 cknloop))))))
+(sieve-f (loop :for cknloop :in mk-sieve :collect
+        (let* ((accum-fun #'(lambda (sieve-1 cknloop) (s-union sieve-1 cknloop))))
+                  (setf sieve-1 (funcall accum-fun sieve-1 cknloop))))))
 
-(last-elem crible-f)))
+(last-elem sieve-f)))
 
 ; ==============================================
 
-(defmethod! c-intersection-l ((crible list))
+(defmethod! s-intersection-l ((sieve list))
 :initvals ' (((19 16 64) (11 16 64)))
-:indoc ' ("List of all the cribles/sieves in questions") 
+:indoc ' ("List of all the sieves/sieves in questions") 
 :icon 423
 :doc "It converts list of sieves (MODULOS MIN MAX) for midicents notes."
 
-(c-intersection-l-fun crible))
+(s-intersection-l-fun sieve))
 
-(defun c-intersection-l-fun (crible)
+(defun s-intersection-l-fun (sieve)
 (let* (
   
-(mk-crible (crible-l-fun crible))
+(mk-sieve (sieve-l-fun sieve))
 
-(crible-1 (first mk-crible))
+(sieve-1 (first mk-sieve))
 
-(crible-f (loop :for cknloop :in mk-crible :collect
-        (let* ((accum-fun #'(lambda (crible-1 cknloop) (c-intersection crible-1 cknloop))))
-              (setf crible-1 (funcall accum-fun crible-1 cknloop))))))
+(sieve-f (loop :for cknloop :in mk-sieve :collect
+        (let* ((accum-fun #'(lambda (sieve-1 cknloop) (s-intersection sieve-1 cknloop))))
+              (setf sieve-1 (funcall accum-fun sieve-1 cknloop))))))
 
-(last-elem crible-f)))
+(last-elem sieve-f)))
 
 ; ==============================================
 
-(defmethod! c-perfil ((self crible))
+(defmethod! s-perfil ((self sieve))
 :initvals ' ((23 33 47 63 70 71 93 95 119 123 143 153 167 174 183 191 213 215 239 243 263 273 278 287 303 311 333 335 359 363 382 383 393 407 423 431 453 455 479 483 486))
-:indoc ' ("List of all the cribles/sieves in questions") 
+:indoc ' ("List of all the sieves/sieves in questions") 
 :icon 423
 :doc "It converts list of sieves (MODULOS MIN MAX) for midicents notes."
 
-(c-perfil-fun self))
+(s-perfil-fun self))
 
 
-(defun c-perfil-fun (self) (x->dx (revel-crible self)))
+(defun s-perfil-fun (self) (x->dx (revel-sieve self)))
 
 ; ======================
 
-(defmethod! c-perfil ((sieve list))
+(defmethod! s-perfil ((sieve list))
 :initvals ' ((23 33 47 63 70))
-:indoc ' ("List of all the cribles/sieves in questions") 
+:indoc ' ("List of all the sieves/sieves in questions") 
 :icon 423
 :doc "It converts list of sieves (MODULOS MIN MAX) for midicents notes."
 
@@ -86,48 +86,48 @@
 
 ; ==============================================
 
-(defmethod! c-decompose ((sieve list))
+(defmethod! s-decompose ((sieve list))
 :initvals ' ((23 33 47 63 70 71 93 95 119 123 143 153 167 174 183 191 213 215 239 243 263 273 278 287 303 311 333 335 359 363 382 383 393 407 423 431 453 455 479 483 486))
-:indoc ' ("List of all the cribles/sieves in questions") 
+:indoc ' ("List of all the sieves/sieves in questions") 
 :icon 423
 :doc "It converts list of sieves (MODULOS MIN MAX) for midicents notes."
 
-(c-decompose-fun sieve))
+(s-decompose-fun sieve))
 
-(defun c-decompose-fun (sieve &optional result)
+(defun s-decompose-fun (sieve &optional result)
 
 (let* (
 
 (action1
-        (loop :for crible-element :in sieve :collect 
+        (loop :for sieve-element :in sieve :collect 
 
             (remove nil (let* ( 
                     (last-elem-sieve (last-elem sieve))
                     (flat-sieve (flat sieve)))
 
                     (loop :for cknloop :in flat-sieve :collect 
-                        (let* ((box-abs (abs (- crible-element cknloop)))
-                                (box-if (if (= box-abs 0) crible-element box-abs)))
+                        (let* ((box-abs (abs (- sieve-element cknloop)))
+                                (box-if (if (= box-abs 0) sieve-element box-abs)))
                                 (if     (= (length flat-sieve) (length (remove-duplicates 
                                     (x-append
-                                         (arithm-ser crible-element last-elem-sieve box-if)
+                                         (arithm-ser sieve-element last-elem-sieve box-if)
                                                 flat-sieve)
                                         :test
                                         'equal)))
-                                (x-append box-if crible-element last-elem-sieve) nil)))))))
+                                (x-append box-if sieve-element last-elem-sieve) nil)))))))
 
 (action2 (first (sort-list (flat action1 1) :test '< :key 'second)))
 
 (action3 (let* (
-(one-crible (arithm-ser (second action2) (third action2) (first action2))))
+(one-sieve (arithm-ser (second action2) (third action2) (first action2))))
 
-(loop :for cknloop :in one-crible :collect
+(loop :for cknloop :in one-sieve :collect
         (let* ((accum-fun #'(lambda (sieve cknloop) (remove cknloop sieve))))
                   (setf sieve (funcall accum-fun sieve cknloop))))))
 
 (action4 (last-elem action3)))
 
-(if (null sieve) (x-append result (list action2)) (setf action4 (c-decompose-fun sieve (push action2 result))))))
+(if (null sieve) (x-append result (list action2)) (setf action4 (s-decompose-fun sieve (push action2 result))))))
 
 #| Preciso terminar e colocar duas opções para a avaliação da sieve:
 
@@ -137,18 +137,18 @@
 
 
 ; ==============================================
-(defmethod! c-symmetry-perfil ((sieve-l LIST) (range list) (modo integer))
-:initvals ' ((crible) (25 500))
+(defmethod! s-symmetry-perfil ((sieve-l LIST) (range list) (modo integer))
+:initvals ' ((sieve) (25 500))
 :menuins '((2 (("union" 1) ("intersection" 2))))
-:indoc ' ("List of all the cribles/sieves in questions" "Range of the limites." "It is union or intersection?") 
+:indoc ' ("List of all the sieves/sieves in questions" "Range of the limites." "It is union or intersection?") 
 :icon 423
 :doc "It converts list of sieves (MODULOS MIN MAX) for midicents notes."
 
 (let* (
 (action1-main (loop :for cknloop :in (arithm-ser (first range) (second range) 1) :collect (let* (
         (box-flat (if (equal modo 1)
-                (flat (mapcar (lambda (x) (revel-crible (c-union-l-fun (mapcar (lambda (sieve-l) (x-append sieve-l x)) sieve-l)))) (list cknloop)))
-                (flat (mapcar (lambda (x) (revel-crible (c-intersection-l-fun (mapcar (lambda (sieve-l) (x-append sieve-l x)) sieve-l)))) (list cknloop)))))   
+                (flat (mapcar (lambda (x) (revel-sieve (s-union-l-fun (mapcar (lambda (sieve-l) (x-append sieve-l x)) sieve-l)))) (list cknloop)))
+                (flat (mapcar (lambda (x) (revel-sieve (s-intersection-l-fun (mapcar (lambda (sieve-l) (x-append sieve-l x)) sieve-l)))) (list cknloop)))))   
         (box-x->dx 
                 (x->dx (if (om< 3 (length box-flat)) box-flat (list 1 2 4)))))
         (if (equal box-x->dx (reverse box-x->dx))    
@@ -161,16 +161,16 @@
 
 ; ============================================== 
 
-(defmethod! c-limite ((sieve-l LIST) (limite number) (modo integer))
+(defmethod! s-limite ((sieve-l LIST) (limite number) (modo integer))
 :initvals ' (((19 16) (11 16)) 225)
-:indoc ' ("List of all the cribles/sieves in questions") 
+:indoc ' ("List of all the sieves/sieves in questions") 
 :menuins '((2 (("union" 1) ("intersection" 2))))
 :icon 423
 :doc "It converts list of sieves (MODULOS MIN MAX) for midicents notes."
 
 (if (equal modo 1) 
-        (c-union-l-fun (mapcar (lambda (x) (x-append x limite)) sieve-l))
-        (c-intersection-l-fun (mapcar (lambda (x) (x-append x limite)) sieve-l))))
+        (s-union-l-fun (mapcar (lambda (x) (x-append x limite)) sieve-l))
+        (s-intersection-l-fun (mapcar (lambda (x) (x-append x limite)) sieve-l))))
 
 
 ; ==============================================
