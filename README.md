@@ -24,7 +24,6 @@ __s-union__: No s-union¬ podemos unir dois ou mais crivos. Assim como o objeto 
 
 _**s-union-l**_: Este objeto constrói uma união de crivos a partir de um único objeto, com ele não é necessário criar e conectar vários objetos, facilitando a construção musical, em termos muito diretos, gastar menos tempo conectando objetos. Abaixo temos o exemplo da comparação da construção do mesmo crivo, o da esquerda a partir dos objetos por Carlos Agon e Moreno Andreatta e a direita a partir de nossos objetos.
 
-![S-union-l](https://lh6.googleusercontent.com/HEFesLp1rlxOrdDtjt6cvP45xRmGCoiDB8iFtAlOa37PJd1kl_QiyvVe9K79HoEBXQvhZl6XCRDMl-HesxIC3F1JZO3OY15u3x-fpadL-s3sSc8C2pU=w1280)
 
 _**s-intersection-l**_: Este objeto constrói a intersecção de crivos a partir de um único objeto. O objetivo dele é o mesmo que o c-union-l. Abaixo segue a comparação entre os objetos de Andreatta e Agon e nossos objetos.
 
@@ -32,8 +31,6 @@ _**s-perfil**_: Este objeto é responsável por mostrar o perfil de um crivo.
 
 _**s-decompose:**_ Este objeto implementa o conceito descrito em Ariza (2005), ou seja, ele descreve um crivo a partir das uniões necessárias para sua construção. Suponha que estamos analisando uma peça e descobrimos que temos um crivo com os seguintes números: (3 23 33 47 63 70 71 93 95 119 123 143 153 167 174 183 191 213 215 239 243 263 273 278 287 303 311 333 335 359 363 382 383 393 407 423 431 453 455 479 483 486). Com o objeto s-decompose podemos descobrir rapidamente a qual crivo estes números pertencem. 
 Esse objeto é útil dentro de nosso processo criando simetrias, ou dando as informações necessárias para criar simetrias a partir de processos randômicos. Ou seja, esteticamente esse processo mostra simetrias onde em um primeiro momento não havia. No exemplo abaixo, temos um patch que busca, em um conjunto de números aleatórios de 16 a 128, aquele conjunto que pode ser representado pela união de 3 ou menos crivos. 
-
-![S-decompose](https://lh4.googleusercontent.com/Kd-xLSFwLdumiHs5JSP0qUzLXlwImys70jENFTKneom0xhxVAiWdf31ZM6Vety789fgnfnbANNkzpSnMz_c1cSiWW5QXWDnI7Lfv8p2jwRELqf2uFBU=w1280)
 
 _**s-symmetry-perfil**_: Este objeto busca por crivos simétricos em um terminado espectro de limites. No exemplo abaixo buscaremos simetrias entre limites que vão de 25 até 500 na união dos crivos 1116 e 1916. Na primeira entrada temos os crivos que serão utilizados, na segunda o menor e o maior números de todos os limites testados (testará todos os limites de 25 até 500), e na terceira entrada se estamos trabalhando com união dos crivos na primeira entrada ou com a intersecção dos crivos na primeira entrada, devemos clicar na terceira entrada para mudar as opções ou colocar 1 para união e 2 para intersecção. 
  
