@@ -2,7 +2,9 @@
 
 This library is a complementation of the mathtools developed by Carlos Agon and Moreno Andreatta. It have that aim to make more easy the use of the Xenakis' sieves OM#.
 
-It was developed in my Master's Research at Federal University in Juiz de Fora.
+
+It was developed in my Master's Research at Federal University in Juiz de Fora. Financial Support by Federal University in Juiz de Fora.
+Esta biblioteca foi desenvolvida em minha pesquisa de mestrado na Universidade Federal de Juiz de Fora. Apoio Financeiro pela Universidade Federal de Juiz de Fora.
 
 
 ![UFJF](https://github.com/charlesneimog/OM-Sieves/blob/master/Imagens/logo.png)
