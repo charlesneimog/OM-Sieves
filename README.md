@@ -5,7 +5,7 @@ This library is a complementation of the mathtools developed by Carlos Agon and 
 It was developed in my Master's Research at Federal University in Juiz de Fora.
 
 
-![Range Reduce](https://github.com/charlesneimog/OM-Sieves/blob/master/Imagens/UFJF.png)
+![UFJF](https://github.com/charlesneimog/OM-Sieves/blob/master/Imagens/logo.png)
 
 _**sieve**_: O objeto sieve faz o próprio crivo. Ele é responsável por dizer qual é o ponto de partida, qual a unidade somatória e o limite. Dele obtemos um self. O self em si não é um resultado, mas um processo. Ou seja, do objeto sieve obtemos somente como fazer o crivo e não o próprio crivo.
 
