@@ -15,9 +15,7 @@ See http://charlesneimog.com")
 
 (:symbols 
       
-            (:classes sieve) (:functions s-union s-intersection s-complement revel-sieve s-decompose s-list s-union-l s-intersection-l s-symmetry-perfil  s-limite))
-            
-                   
+            (:classes sieve) (:functions s-union s-intersection s-complement revel-sieve s-decompose s-list s-union-l s-intersection-l s-symmetry-perfil  s-limite))                  
           )
 
 

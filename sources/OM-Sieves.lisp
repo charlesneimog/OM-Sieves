@@ -33,7 +33,7 @@
 (sieve-1 (first mk-sieve))
 
 (sieve-f (loop :for cknloop :in mk-sieve :collect
-        (let* ((accum-fun #'(lambda (sieve-1 cknloop) (s-union sieve-1 cknloop))))
+        (let* ((accum-fun (lambda (sieve-1 cknloop) (s-union sieve-1 cknloop))))
                   (setf sieve-1 (funcall accum-fun sieve-1 cknloop))))))
 
 (last-elem sieve-f)))
@@ -135,7 +135,6 @@
         A segunda e a seguinte: E se houver numeros compartilhados entre duas sieves, como calcular isso?
         |#
 
-
 ; ==============================================
 (defmethod! s-symmetry-perfil ((sieve-l LIST) (range list) (modo integer))
 :initvals ' ((sieve) (25 500))
@@ -174,6 +173,11 @@
 
 
 ; ==============================================
+(print "sieve, s-union, s-intersection, s-complementation and revel-sieve
+
+                   are objects by 
+                   
+                   Moreno Andreatta and Carlos Agon")
 
 (print 
  "
@@ -182,4 +186,5 @@
    Universidade Federal de Juiz de Fora (2020) 
 "
 )
+
 
