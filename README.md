@@ -4,6 +4,7 @@ This library is a complementation of the mathtools developed by Carlos Agon and 
 
 
 It was developed in my Master's Research at Federal University in Juiz de Fora. Financial Support by Federal University in Juiz de Fora.
+
 Esta biblioteca foi desenvolvida em minha pesquisa de mestrado na Universidade Federal de Juiz de Fora. Apoio Financeiro pela Universidade Federal de Juiz de Fora.
 
 
