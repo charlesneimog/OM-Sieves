@@ -1,5 +1,7 @@
 # OM-Sieves
 
+![Version](https://img.shields.io/badge/version-BETA-green.svg?style=flat-square) ![License](https://img.shields.io/badge/license-GPL3-blue.svg?style=flat-square) ![Language](https://img.shields.io/badge/language-Lisp-yellow.svg?style=flat-square) 
+
 This library is a complementation of the mathtools developed by Carlos Agon and Moreno Andreatta. It have that aim to make more easy the use of the Xenakis' sieves OM#.
 
 
