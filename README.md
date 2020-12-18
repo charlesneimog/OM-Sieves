@@ -11,7 +11,7 @@ It was developed in my Master's Research at Federal University in Juiz de Fora. 
 Esta biblioteca foi desenvolvida em minha pesquisa de mestrado na Universidade Federal de Juiz de Fora. Apoio Financeiro pela Universidade Federal de Juiz de Fora.
 
 
-![UFJF](https://github.com/charlesneimog/OM-Sieves/blob/master/Imagens/logo-ufjf.png)
+![UFJF](https://github.com/charlesneimog/OM-Sieves/blob/master/Imagens/logo.png)
 
 ------
 
