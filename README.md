@@ -17,7 +17,7 @@ Esta biblioteca foi desenvolvida em minha pesquisa de mestrado na Universidade F
 
 _**sieve**_: O objeto sieve faz o próprio crivo. Ele é responsável por dizer qual é o ponto de partida, qual a unidade somatória e o limite. Dele obtemos um self. O self em si não é um resultado, mas um processo. Ou seja, do objeto sieve obtemos somente como fazer o crivo e não o próprio crivo.
 
-__s-union__: No s-union¬ podemos unir dois ou mais crivos. Assim como o objeto sieve¸ este objeto resulta em um self e não em um resultado propriamente dito.
+__s-union__: No s-union podemos unir dois ou mais crivos. Assim como o objeto sieve¸ este objeto resulta em um self e não em um resultado propriamente dito.
 
 **_s-intersection_**: O s-intersection faz a intersecção de um ou mais crivos. Este objeto também resulta em um self.
 
