@@ -1,6 +1,8 @@
 # OM-Sieves
 
-![Version](https://img.shields.io/badge/version-BETA-green.svg?style=flat-square) ![License](https://img.shields.io/badge/license-GPL3-blue.svg?style=flat-square) ![Language](https://img.shields.io/badge/language-Lisp-yellow.svg?style=flat-square) ![UFJF](https://github.com/charlesneimog/OM-Sieves/blob/master/Imagens/ufjf.png) ![PPGACL](https://github.com/charlesneimog/OM-Sieves/blob/master/Imagens/ppgacl.png) ![COMUS](![PPGACL](https://github.com/charlesneimog/OM-Sieves/blob/master/Imagens/comus.png)
+![Version](https://img.shields.io/badge/version-BETA-green.svg?style=flat-square) ![License](https://img.shields.io/badge/license-GPL3-blue.svg?style=flat-square) ![Language](https://img.shields.io/badge/language-Lisp-yellow.svg?style=flat-square) 
+
+![UFJF](https://github.com/charlesneimog/OM-Sieves/blob/master/Imagens/ufjf.png) ![PPGACL](https://github.com/charlesneimog/OM-Sieves/blob/master/Imagens/ppgacl.png) ![PPGACL](https://github.com/charlesneimog/OM-Sieves/blob/master/Imagens/comus.png)
 It was developed in my Master's Research at Federal University in Juiz de Fora. Financial Support by Federal University in Juiz de Fora.
 
 Esta biblioteca foi desenvolvida em minha pesquisa de mestrado na Universidade Federal de Juiz de Fora. Apoio Financeiro pela Universidade Federal de Juiz de Fora.
