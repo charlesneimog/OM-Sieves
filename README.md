@@ -1,5 +1,9 @@
 # OM-Sieves
 
+This library is a complementation of the mathtools developed by Carlos Agon and Moreno Andreatta. It have that aim to make more easy the use of the Xenakis' sieves OM#. 
+
+---
+
 ![Version](https://img.shields.io/badge/version-BETA-green.svg?style=flat-square) ![License](https://img.shields.io/badge/license-GPL3-blue.svg?style=flat-square) ![Language](https://img.shields.io/badge/language-Lisp-yellow.svg?style=flat-square) 
 
 ![UFJF](https://github.com/charlesneimog/OM-Sieves/blob/master/Imagens/ufjf.png) ![PPGACL](https://github.com/charlesneimog/OM-Sieves/blob/master/Imagens/ppgacl.png) ![PPGACL](https://github.com/charlesneimog/OM-Sieves/blob/master/Imagens/comus.png)
@@ -10,11 +14,6 @@ Esta biblioteca foi desenvolvida em minha pesquisa de mestrado na Universidade F
 
 
 ------
-
-This library is a complementation of the mathtools developed by Carlos Agon and Moreno Andreatta. It have that aim to make more easy the use of the Xenakis' sieves OM#.
-
-------
-
 
 _**sieve**_: O objeto sieve faz o próprio crivo. Ele é responsável por dizer qual é o ponto de partida, qual a unidade somatória e o limite. Dele obtemos um self. O self em si não é um resultado, mas um processo. Ou seja, do objeto sieve obtemos somente como fazer o crivo e não o próprio crivo.
 
