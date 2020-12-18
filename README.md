@@ -1,6 +1,6 @@
 # OM-Sieves
 
-This library is a complementation of the mathtools developed by Carlos Agon and Moreno Andreatta. It have that aim to make more easy the use of the Xenakis' sieves OM#. 
+This library is a complementation of the mathtools developed by Carlos Agon and Moreno Andreatta. It has that aim to make easier the use of the Xenakis' sieves OM#. 
 
 ---
 
