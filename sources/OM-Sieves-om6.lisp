@@ -25,7 +25,7 @@
 
 (let* (
 (action1 (s-list sieve))
-(action2 (s-union-l action1)))
+(action2 (s-union-l-fun action1)))
 action2))
 
 ; ==============================================
@@ -35,12 +35,12 @@ action2))
 (let*  (
     (action1 (s-union (first sieves) (second sieves)))
     (action2 (if 
-                (>  (length (x-append action1 sieves)) 2)
+                (>  (length (flat (list action1))) 2)
                 (x-append action1 (last-n sieves (- (length sieves) 2)))
                 action1)))
     
-    (if (< (length action2) 2)
-            (first action2)
+    (if (< (length (flat (list action2))) 2)
+             action2
             (setf sieves (s-union-l-fun action2)))))
 
 ; ==============================================
@@ -51,7 +51,10 @@ action2))
 :icon 423
 :doc "It converts list of sieves (MODULOS MIN MAX) for midicents notes."
 
-(s-intersection-l-fun sieve))
+(let* (
+(action1 (s-list sieve))
+(action2 (s-intersection-l-fun action1)))
+action2))
 
 ; ==============================================
 
@@ -60,12 +63,12 @@ action2))
 (let*  (
     (action1 (s-intersection (first sieves) (second sieves)))
     (action2 (if 
-                (>  (length (x-append action1 sieves)) 2)
+                (>  (length (flat (list action1))) 2)
                 (x-append action1 (last-n sieves (- (length sieves) 2)))
                 action1)))
     
-    (if (< (length action2) 2)
-            (first action2)
+    (if (< (length (flat (list action2))) 2)
+             action2
             (setf sieves (s-intersection-l-fun action2)))))
 
 ; ==============================================
@@ -95,7 +98,7 @@ action2))
 
 ; ==============================================
 
-(defmethod! s-decompose ((sieve list))  ;;não funciona
+(defmethod! s-decompose ((sieve list))  
 :initvals ' ((23 33 47 63 70 71 93 95 119 123 143 153 167 174 183 191 213 215 239 243 263 273 278 287 303 311 333 335 359 363 382 383 393 407 423 431 453 455 479 483 486))
 :indoc ' ("List of all the sieves/sieves in questions") 
 :icon 423
@@ -154,17 +157,17 @@ action2))
 
 
 (let* (
-(action1-main (loop :for cknloop :in (arithm-ser (first range) (second range) 1) :collect (let* (
+(action1-main 
+ (loop :for cknloop :in (arithm-ser (first range) (second range) 1) :collect 
+       (let* (
         (box-flat (if (equal modo 1)
-                (flat (mapcar (lambda (x) (revel-sieve (s-union-l-fun (mapcar (lambda (sieve-l) (x-append sieve-l x)) sieve-l)))) (list cknloop)))
-                (flat (mapcar (lambda (x) (revel-sieve (s-intersection-l-fun (mapcar (lambda (sieve-l) (x-append sieve-l x)) sieve-l)))) (list cknloop)))))   
-        (box-x->dx 
-                (x->dx (if (om< 3 (length box-flat)) box-flat (list 1 2 4)))))
+                (flat (mapcar (lambda (x) (revel-sieve (s-union-l (mapcar (lambda (sieve-l) (x-append sieve-l x)) sieve-l)))) (list cknloop)))
+                (flat (mapcar (lambda (x) (revel-sieve (s-intersection-l (mapcar (lambda (sieve-l) (x-append sieve-l x)) sieve-l)))) (list cknloop)))))   
+        (box-x->dx (x->dx (if (om< 3 (length box-flat)) box-flat (list 1 2 4)))))
         (if (equal box-x->dx (reverse box-x->dx))    
-        
                 (let* (
-        (action-1 (loop for cknloop-2 in box-flat :collect (if (om= cknloop cknloop-2) cknloop-2 nil))))        
-        (remove nil action-1)) nil)))))
+                       (action-1 (loop :for cknloop-2 :in box-flat :collect (if (om= cknloop cknloop-2) cknloop-2 nil))))        
+                  (remove nil action-1)) nil)))))
 
 (flat (remove nil action1-main))))
 
