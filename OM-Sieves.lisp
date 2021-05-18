@@ -7,7 +7,7 @@
 
 
 (mapc #'(lambda (filename) 
-          (compile&load (om-relative-path '("sources") filename))) '("cribles" "OM-Sieves"))
+          (compile&load (om-relative-path '("sources") filename))) '("cribles" "OM-Sieves-om6"))
 
 
       

@@ -13,7 +13,7 @@
 (sieve-l-fun sieve))
 
 (defun sieve-l-fun (sieve)  
-  (loop for cknloop in sieve :collect (make-value 'sieve (list (list :cr-exp cknloop)))))
+  (loop for cknloop in sieve :collect (make-value 'sieve (list (list :sieve-exp cknloop)))))
 
 ; ==============================================
 
@@ -26,13 +26,15 @@
 (s-union-l-fun sieve))
 
 
-(defun s-union-l-fun (sieve) (let* (
+(defun s-union-l-fun (sieve) 
 
-(mk-sieve (sieve-l-fun sieve))
+(let* (
+
+        (mk-sieve (sieve-l-fun sieve))
   
-(sieve-1 (first mk-sieve))
+        (sieve-1 (first mk-sieve))
 
-(sieve-f (loop :for cknloop :in mk-sieve :collect
+        (sieve-f (loop :for cknloop :in mk-sieve :collect
         (let* ((accum-fun (lambda (sieve-1 cknloop) (s-union sieve-1 cknloop))))
                   (setf sieve-1 (funcall accum-fun sieve-1 cknloop))))))
 
@@ -142,6 +144,9 @@
 :indoc ' ("List of all the sieves/sieves in questions" "Range of the limites." "It is union or intersection?") 
 :icon 423
 :doc "It converts list of sieves (MODULOS MIN MAX) for midicents notes."
+
+
+
 
 (let* (
 (action1-main (loop :for cknloop :in (arithm-ser (first range) (second range) 1) :collect (let* (

@@ -5,7 +5,7 @@
 ;===============================================
 
 (defclass! sieve () 
-  ((cr-exp :initform '(2 0 18) :initarg :cr-exp :accessor cr-exp)
+  ((sieve-exp :initform '(2 0 18) :initarg :sieve-exp :accessor sieve-exp)
    (maxn :initform 0 :accessor maxn))
   (:icon 423))
 
@@ -14,9 +14,9 @@
 (defmethod initialize-instance ((self sieve)  &rest rest)
   (declare (ignore rest))
   (call-next-method)
-  (if (not (stringp (car (cr-exp self))))
-    (setf (maxn self) (third (cr-exp self)))
-    (setf (maxn self) (apply 'max (mapcar 'maxn (cdr (cr-exp self))))))
+  (if (not (stringp (car (sieve-exp self))))
+    (setf (maxn self) (third (sieve-exp self)))
+    (setf (maxn self) (apply 'max (mapcar 'maxn (cdr (sieve-exp self))))))
   self)
 
 ;===============================================
@@ -26,7 +26,7 @@
   :icon 423
   (let* ((s-list (append (list self sieve) rest))
          (newc (make-instance 'sieve
-                 :cr-exp (cons "sieve-u" s-list))))
+                 :sieve-exp (cons "sieve-u" s-list))))
     newc ))
 
 ;===============================================
@@ -36,16 +36,16 @@
   :icon 423
   (let* ((s-list (append (list self sieve) rest))
          (newc (make-instance 'sieve
-                 :cr-exp (cons "sieve-i" s-list))))
+                 :sieve-exp (cons "sieve-i" s-list))))
     newc))
 
 ;===============================================
 
 (defmethod! s-complement ((self sieve))
-  :doc "It makes the set-theoretical complement of a sieve/sieve."
+  :doc "This object does the complement of a sieve. If we have a sieve from 16 to 32 with the following result (16 19 23 25 28 30 31) with this object, we will obtain all the numbers from 16 to 32 that are not part of the sieve (16 19 23 25 28 30 31). We emphasize that in this object we have changed the implementation of Andreatta and Agon. In their implementation, this object would result, with the same sieve, all numbers from 0 to 32 and not from 16 to 32. In our conception, this lower limit is essential. Because that we changed the implementation so that the s-complement object also considers the lower limit."
   :icon 423
   (let* ((newc (make-instance 'sieve
-                 :cr-exp (list "sieve-c" self))))
+                 :sieve-exp (list "sieve-c" self))))
     newc))
     
 ;===============================================
@@ -79,20 +79,20 @@
   :icon 423
   (cond
 
-   ((not (stringp (car (cr-exp self))))
-    (loop for i from (second (cr-exp self)) to (third (cr-exp self)) by (first (cr-exp self))
+   ((not (stringp (car (sieve-exp self))))
+    (loop for i from (second (sieve-exp self)) to (third (sieve-exp self)) by (first (sieve-exp self))
           collect i))
 
-   ((string-equal (car (cr-exp self)) "sieve-c")
-    (let ((total (loop for i from 0 to (maxn (second (cr-exp self)))  collect i))
-    (sieve-r-c (revel-sieve  (second (cr-exp self)))))
+   ((string-equal (car (sieve-exp self)) "sieve-c")
+    (let ((total (loop for i from 0 to (maxn (second (sieve-exp self)))  collect i))
+    (sieve-r-c (revel-sieve  (second (sieve-exp self)))))
     (remove nil (mapcar (lambda (x) (if (om<= (first sieve-r-c) x) x nil)) (sort-list  (set-difference total sieve-r-c))))))
 
 ;; Charles K. Neimog = I did one little modification in revel-sieve of sieve-c; it is not beautiful, but work! For me, in this way, it makes more sense musically.
 
    (t
-    (let ((function (intern (string-upcase (car (cr-exp self)))))
-          (args (cdr (cr-exp self))))
+    (let ((function (intern (string-upcase (car (sieve-exp self)))))
+          (args (cdr (sieve-exp self))))
       (sort (apply function (loop for item in args collect (revel-sieve item))) '<)))
   ))
 

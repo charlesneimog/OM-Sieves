@@ -14,16 +14,7 @@ See http://charlesneimog.com")
 (:source-files "sources/cribles" "sources/OM-Sieves")
 
 (:symbols 
-      
-            (:classes sieve) (:functions s-union s-intersection s-complement revel-sieve s-decompose s-list s-union-l s-intersection-l s-symmetry-perfil  s-limite))                  
-          )
+     (:classes sieve) (:functions s-union s-intersection s-complement revel-sieve s-decompose s-list s-union-l s-intersection-l s-symmetry-perfil  s-limite)))
 
 
-(print 
-"
-                                              OM-Sieves
-
-      by Charles K. Neimog | charlesneimog.com  
-      Universidade Federal de Juiz de Fora (2019-2020)
-"
-)       
+    
