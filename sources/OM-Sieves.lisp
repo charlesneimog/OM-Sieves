@@ -88,15 +88,28 @@
 
 ; ==============================================
 
+(defmethod! s-decompose ((sieve sieve))
+:initvals ' ((23 33 47 63 70 71 93 95 119 123 143 153 167 174 183 191 213 215 239 243 263 273 278 287 303 311 333 335 359 363 382 383 393 407 423 431 453 455 479 483 486))
+:indoc ' ("List of all the sieves/sieves in questions") 
+:icon 423
+:doc "It converts list of sieves (MODULOS MIN MAX) for midicents notes."
+
+(s-decompose-fun (revel-sieve sieve) (revel-sieve sieve)))
+
+; ==============================================
+
 (defmethod! s-decompose ((sieve list))
 :initvals ' ((23 33 47 63 70 71 93 95 119 123 143 153 167 174 183 191 213 215 239 243 263 273 278 287 303 311 333 335 359 363 382 383 393 407 423 431 453 455 479 483 486))
 :indoc ' ("List of all the sieves/sieves in questions") 
 :icon 423
 :doc "It converts list of sieves (MODULOS MIN MAX) for midicents notes."
 
-(s-decompose-fun sieve))
+(s-decompose-fun sieve sieve))
 
-(defun s-decompose-fun (sieve &optional result)
+
+;; =====================
+
+(defun s-decompose-fun (sieve original-sieve &optional result)
 
 (let* (
 
@@ -105,37 +118,43 @@
 
             (remove nil (let* ( 
                     (last-elem-sieve (last-elem sieve))
-                    (flat-sieve (flat sieve)))
+                    (flat-sieve (flat original-sieve)))
 
                     (loop :for cknloop :in flat-sieve :collect 
-                        (let* ((box-abs (abs (- sieve-element cknloop)))
-                                (box-if (if (= box-abs 0) sieve-element box-abs)))
-                                (if     (= (length flat-sieve) (length (remove-duplicates 
-                                    (x-append
-                                         (arithm-ser sieve-element last-elem-sieve box-if)
-                                                flat-sieve)
-                                        :test
-                                        'equal)))
-                                (x-append box-if sieve-element last-elem-sieve) nil)))))))
+                        (let* (
+                                (box-abs (abs (- sieve-element cknloop)))
+                                (box-if (if (= box-abs 0) sieve-element box-abs))
+                                (length-of-builded-a-sieve 
+                                        (length (remove-duplicates 
+                                                (x-append (arithm-ser sieve-element last-elem-sieve box-if)
+                                                        flat-sieve)
+                                                                :test 'equal))))
+                        (if     
+                                (= (length original-sieve) length-of-builded-a-sieve)
+                                (x-append box-if sieve-element last-elem-sieve) 
+                                nil)))))))
 
 (action2 (first (sort-list (flat action1 1) :test '< :key 'second)))
-
 (action3 (let* (
-(one-sieve (arithm-ser (second action2) (third action2) (first action2))))
-
-(loop :for cknloop :in one-sieve :collect
-        (let* ((accum-fun #'(lambda (sieve cknloop) (remove cknloop sieve))))
-                  (setf sieve (funcall accum-fun sieve cknloop))))))
+                (one-sieve (arithm-ser (second action2) (third action2) (first action2))))
+                        (loop :for cknloop :in one-sieve 
+                                :collect
+                                (let* ((accum-fun (lambda (sieve cknloop) (remove cknloop sieve))))
+                                        (setf sieve (funcall accum-fun sieve cknloop))))))
 
 (action4 (last-elem action3)))
 
-(if (null sieve) (x-append result (list action2)) (setf action4 (s-decompose-fun sieve (push action2 result))))))
+(if (null sieve) 
+        (x-append (list action2) result)
+        (setf action4 (s-decompose-fun sieve original-sieve (push action2 result))))))
 
 #| Preciso terminar e colocar duas opções para a avaliação da sieve:
 
         A primeira e analisar a sieve a partir do primeiro número em comum. 
         A segunda e a seguinte: E se houver numeros compartilhados entre duas sieves, como calcular isso?
         |#
+
+
 
 ; ==============================================
 (defmethod! s-symmetry-perfil ((sieve-l LIST) (range list) (modo integer))
@@ -144,9 +163,6 @@
 :indoc ' ("List of all the sieves/sieves in questions" "Range of the limites." "It is union or intersection?") 
 :icon 423
 :doc "It converts list of sieves (MODULOS MIN MAX) for midicents notes."
-
-
-
 
 (let* (
 (action1-main (loop :for cknloop :in (arithm-ser (first range) (second range) 1) :collect (let* (
