@@ -11,7 +11,7 @@
 
 
       
-(fill-library  '(("Sieve" nil (sieve) (s-union s-intersection s-complement revel-sieve s-decompose s-list s-union-l s-intersection-l s-symmetry-perfil  s-limite) nil)
+(fill-library  '(("Sieve" nil (sieve) (s-ariza s-union s-intersection s-complement revel-sieve s-decompose s-list s-union-l s-intersection-l s-symmetry-perfil s-modulus-decomposition s-limite) nil)
                
                 ))
 
