@@ -1,6 +1,6 @@
 # OM-Sieves
 
-This library is a complementation of the mathtools developed by Carlos Agon and Moreno Andreatta. It has that aim to make easier the use of the Xenakis' sieves in [OM#](https://github.com/cac-t-u-s/om-sharp). 
+This library is a complementation of the mathtools developed by Carlos Agon and Moreno Andreatta. It has that aim to make easier the use of the Xenakis' sieves in [OM#](https://github.com/cac-t-u-s/om-sharp) and OpenMusic. 
 
 # [Download](https://github.com/charlesneimog/OM-Sieves/releases/download/1.1/OM-Sieves.zip)
 
