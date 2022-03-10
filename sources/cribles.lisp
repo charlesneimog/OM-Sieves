@@ -104,5 +104,14 @@
 (defmethod! revel-sieve ((self t))
   nil)
 
-(print "sieve, s-union, s-intersection, s-complementation and revel-sieve are objects by Moreno Andreatta and Carlos Agon")
+(print "
+
+===============================================
+
+sieve, s-union, s-intersection, s-complementation and revel-sieve 
+are objects by Moreno Andreatta and Carlos Agon
+
+===============================================
+
+")
 
